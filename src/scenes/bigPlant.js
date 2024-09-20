@@ -4,6 +4,7 @@ class bigPlant extends Phaser.Scene {
         super("bigPlant");
       }
     
+      //Preloading image
       preload() {
         this.load.image('neuIcon', 'assets/neu.png');
       }
