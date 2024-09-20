@@ -7,7 +7,7 @@ let config = {
     },
     backgroundColor: '#4488aa',
     pixelArt: true,
-	scene: [smallPlant, bigPlant]
+	scene: [smallPlant, bigPlant, flowerPlant]
 }
 
 let game = new Phaser.Game(config);

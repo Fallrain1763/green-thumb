@@ -14,7 +14,9 @@ class smallPlant extends Phaser.Scene {
               
         this.scene.start("bigPlant")
       
-      });                                         
+      });            
+      
+      console.log("hello world");
     }
   
     update() {
