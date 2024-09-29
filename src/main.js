@@ -7,7 +7,7 @@ let config = {
     },
     backgroundColor: '#4488aa',
     pixelArt: true,
-	scene: [smallPlant, bigPlant, flowerPlant]
+	scene: [ firstDay, secondDay, thirdDay, forthDay, otherDays,smallPlant, bigPlant, flowerPlant]
 }
 
 let game = new Phaser.Game(config);
