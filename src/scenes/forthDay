@@ -10,26 +10,22 @@ class forthDay extends Phaser.Scene {
         this.load.image('bug','assets/images/bugs.png');
         this.load.image('water','assets/images/wateringCan.png');
         this.load.image('fert','assets/images/fertilizerBag.png');
-        // Load sad BGM
-        // Load water, bug, fert audio
+        // Load water, fert audio
+        this.load.audio('watering', 'sfx/Watering3.mp3')
+        this.load.audio('digDirt', 'sfx/Dirt3.ogg')
         
       }
       create() {     
         this.add.image(game.config.width/2, game.config.height/2, 'wb');
         this.add.image(game.config.width/2, 600, 'fp');
         // add sad BGM
-        
-        let bug = this.add.image(game.config.width/2, 600, 'bug')
-        .setInteractive()
-        .on('pointerdown', () => {
-            // bug audio
-            bug.destroy();
-        });
 
         let water = this.add.image(200, 750, 'water')
         .setInteractive()
         .on('pointerdown', () => {
             // water audio
+            const watering = this.sound.add('watering');
+            watering.play();
             water.destroy();
         });
 
@@ -37,6 +33,8 @@ class forthDay extends Phaser.Scene {
         .setInteractive()
         .on('pointerdown', () => {
             // fert audio
+            const digDirt = this.sound.add('digDirt');
+            digDirt.play();
             fert.destroy();
         });
 

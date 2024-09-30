@@ -10,25 +10,31 @@ class otherDays extends Phaser.Scene {
         this.load.image('bug','assets/images/bugs.png');
         this.load.image('water','assets/images/wateringCan.png');
         this.load.image('fert','assets/images/fertilizerBag.png');
-        
+        this.load.audio('windHowl', 'sfx/wind.wav');
+        this.load.audio('watering', 'sfx/Watering3.mp3')
+        this.load.audio('digDirt', 'sfx/Dirt3.ogg')
       }
       create() {     
+        //remove music
+        this.sound.removeByKey('BGM');
+
+        // Add wind BGM
+        this.music = this.sound.add('windHowl', {loop: true});
+        this.music.setVolume(5);
+        this.music.play();
+        
         var days = 5;
         
         this.add.image(game.config.width/2, game.config.height/2, 'wb');
         this.add.image(game.config.width/2, 600, 'dp');
-        
-        let bug = this.add.image(game.config.width/2, 600, 'bug')
-        .setInteractive()
-        .on('pointerdown', () => {
-            // bug audio
-            bug.setVisible(false);
-        });
 
         let water = this.add.image(200, 750, 'water')
         .setInteractive()
         .on('pointerdown', () => {
             // water audio
+            const watering = this.sound.add('watering');
+            watering.setVolume(.5);
+            watering.play();
             water.setVisible(false);
         });
 
@@ -36,6 +42,8 @@ class otherDays extends Phaser.Scene {
         .setInteractive()
         .on('pointerdown', () => {
             // fert audio
+            const digDirt = this.sound.add('digDirt');
+            digDirt.play();
             fert.setVisible(false);
         });
 
@@ -44,11 +52,11 @@ class otherDays extends Phaser.Scene {
         this.add.text(1300, 750, 'Next Day', { fontSize: 48 })
         .setInteractive()
         .on('pointerdown', () => {
-            bug.setVisible(true);
             water.setVisible(true);
             fert.setVisible(true);
             days += 1;
             t.setText('Day ' + days);
+            this.cameras.main.fadeIn(2500 + (days*100));
         });  
         
       }

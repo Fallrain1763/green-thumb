@@ -11,7 +11,11 @@ class firstDay extends Phaser.Scene {
         this.load.image('water','assets/images/wateringCan.png');
         this.load.image('fert','assets/images/fertilizerBag.png');
         // Load happy BGM
+        this.load.audio('BGM', 'sfx/ChillBGM1.wav');
         // Load water, bug, fert audio
+        this.load.audio('watering', 'sfx/Watering3.mp3')
+        this.load.audio('bugSquash', 'sfx/BugSquash.wav')
+        this.load.audio('digDirt', 'sfx/Dirt3.ogg')
         
       }
       create() {
@@ -22,11 +26,15 @@ class firstDay extends Phaser.Scene {
         this.add.image(game.config.width/2, game.config.height/2, 'bg');
         this.add.image(game.config.width/2, 600, 'sp');
         // Add happy BGM
+        this.music = this.sound.add('BGM', {loop: true});
+        this.music.play();
         
         let bug = this.add.image(game.config.width/2, 600, 'bug')
         .setInteractive()
         .on('pointerdown', () => {
             // bug audio
+            const bugSquash = this.sound.add('bugSquash');
+            bugSquash.play();
             isBug = true;
             bug.destroy();
         });
@@ -35,6 +43,8 @@ class firstDay extends Phaser.Scene {
         .setInteractive()
         .on('pointerdown', () => {
             // water audio
+            const watering = this.sound.add('watering');
+            watering.play();
             isWater = true;
             water.destroy();
         });
@@ -43,6 +53,8 @@ class firstDay extends Phaser.Scene {
         .setInteractive()
         .on('pointerdown', () => {
             // fert audio
+            const digDirt = this.sound.add('digDirt');
+            digDirt.play();
             isFert = true;
             fert.destroy();
         });
