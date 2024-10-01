@@ -7,7 +7,7 @@ class bigPlant extends Phaser.Scene {
       //Preloading image
       preload() {
         this.load.image('bg','assets/images/summerBack.png');
-        this.load.image('dp','assets/images/deadPlant.png');
+        this.load.image('dp','assets/images/deadBigPlant.png');
         this.load.image('bug','assets/images/bugs.png');
         this.load.image('water','assets/images/wateringCan.png');
         this.load.image('fert','assets/images/fertilizerBag.png');

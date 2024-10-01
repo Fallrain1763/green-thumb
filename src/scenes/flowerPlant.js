@@ -6,7 +6,7 @@ class flowerPlant extends Phaser.Scene {
     
       preload() {
         this.load.image('bg','assets/images/summerBack.png');
-        this.load.image('dp','assets/images/deadPlant.png');
+        this.load.image('dp','assets/images/deadFlowerPlant.png');
         this.load.image('bug','assets/images/bugs.png');
         this.load.image('water','assets/images/wateringCan.png');
         this.load.image('fert','assets/images/fertilizerBag.png');
